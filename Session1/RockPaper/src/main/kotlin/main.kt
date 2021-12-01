@@ -1,10 +1,14 @@
 fun main(){
-    val options = arrayOf("Rock", "Paper", "Scissors")
+    val options = arrayOf("Rock", "Paper", "Scissors", "Lizard", "Spock")
     val computerChoice = options.random()
 
     println("Welcome to rock paper scissors!")
     println("Pick your choice: ")
     val userChoice = readLine()
+    if(userChoice != "Rock" || userChoice != "Paper" || userChoice != "Scissors" || userChoice != "Lizard" || userChoice != "Spock") {
+        println("Foutieve input, probeer opnieuw: ")
+        userChoice = readLine()
+    }
 
     println("Computer picked: $computerChoice")
     println("User picked: $userChoice")
