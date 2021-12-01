@@ -38,6 +38,7 @@ fun challengeTwo(){
     val possibleResults = if(guess == "low") setOf<Int>(1, 2, 3) else setOf<Int>(4, 5, 6)
     if(possibleResults.contains(diceRoll)){
         println("Good job 1 step closer to survival")
+        challengeThree()
     } else{
         gameOver()
     }
@@ -45,6 +46,35 @@ fun challengeTwo(){
 
 
 }
+
+fun challengeThree(){
+    println("Gollem tries to kill you anyways, you have to pick the right weapon for the task:")
+    println("1. Dagger")
+    println("2. Longbow")
+    println("3. Sword")
+    var weaponChoice : Int
+
+    do {
+        println("Your choice:")
+        weaponChoice = readLine()?.toInt() ?: 0
+
+    } while(!setOf<Int>(1, 2, 3).contains(weaponChoice))
+
+    when (weaponChoice) {
+        1 -> {
+            println("The dagger is too short too fight against such a mighty adversary!")
+            challengeTwo()
+        }
+        2 -> {
+            println("Your arrow misses! And you have to run for your life")
+            gameOver()
+        }
+        3 ->
+            println("A mighty sword for a mighty adversary, you slay the foul beast!")
+    }
+}
+
+
 
 fun rollDice(sides: Int): Int{
     return(Math.random() * sides + 1).toInt()
