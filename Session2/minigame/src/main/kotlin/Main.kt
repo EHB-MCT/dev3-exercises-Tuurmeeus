@@ -74,7 +74,23 @@ fun challengeThree(){
     }
 }
 
+fun challengeFour(){
+    println("A lock blocks the exit of the cave, can you guess the code?")
+    var codeGuess: Int
+    val answer = rollDice(100)
+    do {
+        println("Your guess:")
+        codeGuess = readLine()?.toInt() ?: 0
 
+        if(codeGuess == answer){
+            println("The number is right! And the lock opens, Freedom!")
+        } else if (codeGuess < answer){
+            println("Need a smaller number")
+        } else{
+            println("Need a higher number")
+        }
+    } while(answer != codeGuess)
+}
 
 fun rollDice(sides: Int): Int{
     return(Math.random() * sides + 1).toInt()
